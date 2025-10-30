@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Ideal de Solicitud de Cambios</title>
+    <title>Solicitud de Cambio de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -19,7 +13,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
@@ -30,156 +24,50 @@
         .header {
             background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
-            padding: 35px 45px;
+            padding: 30px 40px;
         }
 
         .header h1 {
-            font-size: 30px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
-        .header .subtitle {
-            opacity: 0.95;
+        .header p {
             font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .header .source {
-            opacity: 0.8;
-            font-size: 12px;
-            font-style: italic;
+            opacity: 0.9;
         }
 
         .form-content {
-            padding: 45px;
+            padding: 40px;
         }
 
-        .section {
-            margin-bottom: 40px;
+        .form-section {
+            margin-bottom: 35px;
         }
 
-        .section-header {
-            padding: 14px 22px;
-            border-radius: 8px;
+        .form-section h2 {
             font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .section-header.basic {
-            background: #dbeafe;
             color: #1e40af;
-        }
-
-        .section-header.classification {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .section-header.description {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .section-header.justification {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .section-header.technical {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .section-header.estimation {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .section-header.planning {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .section-header.approval {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .section-number {
-            width: 34px;
-            height: 34px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 14px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .source-label {
-            position: absolute;
-            right: 22px;
-            font-size: 11px;
-            opacity: 0.8;
-            font-weight: normal;
-            font-style: italic;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            margin-bottom: 22px;
-        }
-
-        .form-row.full {
-            grid-template-columns: 1fr;
-        }
-
-        .form-row.three {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        .form-row.four {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            margin-bottom: 20px;
+            border-left: 5px solid #2563eb;
+            padding-left: 10px;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
+            margin-bottom: 20px;
         }
 
         label {
             font-weight: 600;
             color: #374151;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        label .required {
-            color: #ef4444;
-            margin-left: 4px;
-        }
-
-        label .source-badge {
-            font-size: 10px;
-            font-weight: normal;
-            color: #6b7280;
-            font-style: italic;
-            margin-left: 6px;
+            margin-bottom: 6px;
         }
 
         input[type="text"],
         input[type="email"],
-        input[type="tel"],
         input[type="date"],
-        input[type="number"],
         select,
         textarea {
             padding: 12px;
@@ -190,9 +78,7 @@
             transition: all 0.3s;
         }
 
-        input:focus,
-        select:focus,
-        textarea:focus {
+        input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: #2563eb;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -203,220 +89,30 @@
             min-height: 80px;
         }
 
-        .readonly {
-            background: #f3f4f6;
-            cursor: not-allowed;
-        }
-
-        .radio-group, .checkbox-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .radio-option, .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .radio-option input[type="radio"],
-        .checkbox-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .radio-option label,
-        .checkbox-item label {
-            margin-bottom: 0;
-            font-weight: normal;
-            cursor: pointer;
-        }
-
-        .conditional-section {
-            display: none;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .conditional-section.show {
-            display: block;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .estimation-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 12px;
-            background: #f9fafb;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .estimation-header {
-            font-weight: 600;
-            color: #374151;
-            font-size: 13px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .estimation-row {
-            display: contents;
-        }
-
-        .estimation-cell {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .estimation-total {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 12px;
-            margin-top: 10px;
-            padding-top: 15px;
-            border-top: 2px solid #2563eb;
-            font-weight: 600;
-            color: #1e40af;
+        .required {
+            color: #ef4444;
         }
 
         .button-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 45px;
-            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 30px;
         }
 
         button {
-            padding: 15px 35px;
+            padding: 14px 35px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .btn-primary {
+            color: white;
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
+            transition: all 0.3s;
         }
 
-        .btn-primary:hover {
+        button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-secondary {
-            background: #6b7280;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #4b5563;
-        }
-
-        .info-box {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #1e40af;
-            margin-top: 12px;
-        }
-
-        .info-box.warning {
-            background: #fef3c7;
-            border-left-color: #f59e0b;
-            color: #92400e;
-        }
-
-        .info-box.success {
-            background: #dcfce7;
-            border-left-color: #10b981;
-            color: #166534;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .status-pending {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .status-approved {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .footer-note {
-            text-align: center;
-            color: #6b7280;
-            font-size: 12px;
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .feature-highlight {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border: 2px dashed #3b82f6;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .feature-highlight strong {
-            color: #1e40af;
-        }
-
-        @media (max-width: 768px) {
-            .form-row, .form-row.three, .form-row.four {
-                grid-template-columns: 1fr;
-            }
-
-            .form-content {
-                padding: 25px;
-            }
-
-            .estimation-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .estimation-total {
-                grid-template-columns: 1fr;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
-            }
+            box-shadow: 0 8px 20px rgba(16,185,129,0.4);
         }
 
         .success-message {
@@ -432,757 +128,133 @@
 
         .success-message.show {
             display: block;
-            animation: slideDown 0.3s ease-out;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
-        .success-message h3 {
-            margin-bottom: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📋 Formulario Ideal de Solicitud de Cambios de Software</h1>
-            <p class="subtitle">Combinando lo mejor de DOE, Smartsheet y Testing Genius</p>
-            <p class="source">✨ Para Empresas de Desarrollo de Software | Adaptable según tamaño del cambio</p>
+            <h1>📩 Solicitud de Cambio de Software</h1>
+            <p>Formulario para que los usuarios reporten necesidades, errores o mejoras en el sistema.</p>
         </div>
 
         <div class="form-content">
             <form id="changeRequestForm">
-                
-                <!-- Sección 1: Identificación -->
-                <div class="section">
-                    <div class="section-header basic">
-                        <span class="section-number">1</span>
-                        IDENTIFICACIÓN Y CONTEXTO
-                        <span class="source-label">De: Todos los formularios</span>
-                    </div>
 
-                    <div class="form-row four">
-                        <div class="form-group">
-                            <label>CR # (Número de Cambio)</label>
-                            <input type="text" value="CR-2025-AUTO" class="readonly" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="fecha">Fecha de Solicitud</label>
-                            <input type="date" id="fecha" readonly class="readonly">
-                        </div>
-                        <div class="form-group">
-                            <label for="relatedId">ID de solicitud/defecto relacionado  <span class="source-badge">(DOE + Testing Genius)</span></label>
-                            <input type="text" id="relatedId" placeholder="REQ-089">
-                        </div>
-                        <div class="form-group">
-                            <label for="version">Versión Actual</label>
-                            <input type="text" id="version" placeholder="v3.2.1">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="sistema">Sistema/Proyecto <span class="required">*</span></label>
-                            <input type="text" id="sistema" placeholder="Ej: Sistema ERP - Módulo Ventas" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="modulo">Módulo/Componente <span class="source-badge">(Testing Genius)</span></label>
-                            <input type="text" id="modulo" placeholder="Ej: Módulo de facturación">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección 2: Clasificación -->
-                <div class="section">
-                    <div class="section-header classification">
-                        <span class="section-number">2</span>
-                        CLASIFICACIÓN DEL CAMBIO
-                        <span class="source-label">Inspirado en: Testing Genius + DOE</span>
-                    </div>
-
+                <!-- Sección 1 -->
+                <div class="form-section">
+                    <h2>1️⃣ Datos del Solicitante</h2>
                     <div class="form-group">
-                        <label>Tipo de Cambio <span class="required">*</span></label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-feature" name="tipo-cambio" value="feature">
-                                <label for="tipo-feature">🆕 Nueva Funcionalidad</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-mod" name="tipo-cambio" value="modification">
-                                <label for="tipo-mod">🔧 Modificación</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-bug" name="tipo-cambio" value="bug">
-                                <label for="tipo-bug">🐛 Corrección de Bug</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-perf" name="tipo-cambio" value="performance">
-                                <label for="tipo-perf">⚡ Rendimiento</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-sec" name="tipo-cambio" value="security">
-                                <label for="tipo-sec">🔒 Corrección de Seguridad</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="tipo-debt" name="tipo-cambio" value="tech-debt">
-                                <label for="tipo-debt">⚙️ Deuda Técnica</label>
-                            </div>
-                        </div>
+                        <label for="nombre">Nombre Completo <span class="required">*</span></label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Henry Lagua" required>
                     </div>
-
-                    <div class="feature-highlight">
-                        <strong>💡 Innovación de Testing Genius:</strong> Separación entre Severity (impacto técnico) y Priority (urgencia de negocio) para mejor toma de decisiones.
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Severity (Impacto Técnico) <span class="required">*</span> <span class="source-badge">(Testing Genius)</span></label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="sev-critical" name="severity" value="critical" required>
-                                    <label for="sev-critical">🔴 Crítico</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="sev-high" name="severity" value="high">
-                                    <label for="sev-high">🟠 Alto</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="sev-medium" name="severity" value="medium">
-                                    <label for="sev-medium">🟡 Medio</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="sev-low" name="severity" value="low">
-                                    <label for="sev-low">🟢 Bajo</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Priority (Urgencia de Negocio) <span class="required">*</span> <span class="source-badge">(Testing Genius)</span></label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="pri-immediate" name="priority" value="immediate" required>
-                                    <label for="pri-immediate">⚡ Inmediato</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="pri-high" name="priority" value="high">
-                                    <label for="pri-high">Alto</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="pri-medium" name="priority" value="medium">
-                                    <label for="pri-medium">Medio</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="pri-low" name="priority" value="low">
-                                    <label for="pri-low">Bajo</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <label>Tamaño Estimado <span class="required">*</span> <span class="source-badge">(Determina campos condicionales)</span></label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="size-xs" name="size" value="xs" required>
-                                <label for="size-xs">XS (&lt;8h)</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="size-s" name="size" value="s">
-                                <label for="size-s">S (8-40h)</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="size-m" name="size" value="m">
-                                <label for="size-m">M (40-160h)</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="size-l" name="size" value="l">
-                                <label for="size-l">L (160-400h)</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="size-xl" name="size" value="xl">
-                                <label for="size-xl">XL (&gt;400h)</label>
-                            </div>
-                        </div>
+                        <label for="correo">Correo Electrónico <span class="required">*</span></label>
+                        <input type="email" id="correo" name="correo" placeholder="Ej: henry@empresa.com" required>
                     </div>
-
-                    <div class="info-box">
-                        ℹ️ <strong>Campos Condicionales:</strong> Si selecciona M, L o XL, se requerirán campos adicionales de justificación y planificación.
+                    <div class="form-group">
+                        <label for="area">Área o Departamento</label>
+                        <input type="text" id="area" name="area" placeholder="Ej: Finanzas / Desarrollo / Ventas">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Solicitud</label>
+                        <input type="date" id="fecha" readonly>
                     </div>
                 </div>
 
-                <!-- Sección 3: Descripción -->
-                <div class="section">
-                    <div class="section-header description">
-                        <span class="section-number">3</span>
-                        DESCRIPCIÓN DEL CAMBIO
-                        <span class="source-label">De: Testing Genius + Smartsheet</span>
+                <!-- Sección 2 -->
+                <div class="form-section">
+                    <h2>2️⃣ Información del Sistema o Módulo</h2>
+                    <div class="form-group">
+                        <label for="sistema">Sistema/Proyecto <span class="required">*</span></label>
+                        <input type="text" id="sistema" name="sistema" placeholder="Ej: Sistema ERP - Módulo Ventas" required>
                     </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="summary">Resumen <span class="required">*</span> <span class="source-badge">(Smartsheet)</span></label>
-                            <input type="text" id="summary" placeholder="Resumen de 1-2 oraciones para ejecutivos" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="currentBehavior">Comportamiento Actual <span class="required">*</span> <span class="source-badge">(Testing Genius)</span></label>
-                            <textarea id="currentBehavior" placeholder="Describe la situación actual o el problema..." required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="expectedBehavior">Comportamiento Esperado <span class="required">*</span> <span class="source-badge">(Testing Genius)</span></label>
-                            <textarea id="expectedBehavior" placeholder="Describe el comportamiento esperado o solución deseada..." required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="stepsReproduce">Pasos para Reproducir <span class="source-badge">(Testing Genius - si es bug)</span></label>
-                            <textarea id="stepsReproduce" placeholder="1. ... 2. ... 3. ..." style="min-height: 60px;"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="modulo">Módulo o Componente</label>
+                        <input type="text" id="modulo" name="modulo" placeholder="Ej: Facturación, Inventario, RRHH">
                     </div>
                 </div>
 
-                <!-- Sección 4: Justificación (Condicional M/L/XL) -->
-                <div class="section conditional-section" id="justificationSection">
-                    <div class="section-header justification">
-                        <span class="section-number">4</span>
-                        JUSTIFICACIÓN Y VALOR DE NEGOCIO
-                        <span class="source-label">De: Smartsheet | Requerido para M/L/XL</span>
+                <!-- Sección 3 -->
+                <div class="form-section">
+                    <h2>3️⃣ Descripción del Cambio Solicitado</h2>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción del Cambio <span class="required">*</span></label>
+                        <textarea id="descripcion" name="descripcion" placeholder="Describa brevemente el cambio que solicita..." required></textarea>
                     </div>
-
-                    <div class="info-box warning">
-                        ⚠️ <strong>Obligatorio para cambios medianos/grandes:</strong> Necesitamos entender el valor de negocio antes de aprobar.
+                    <div class="form-group">
+                        <label for="motivo">Motivo o Justificación <span class="required">*</span></label>
+                        <textarea id="motivo" name="motivo" placeholder="Explique por qué es necesario este cambio..." required></textarea>
                     </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="businessJust">Business Justification <span class="required">*</span></label>
-                            <textarea id="businessJust" placeholder="¿Por qué es necesario este cambio desde perspectiva de negocio?"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="benefits">Expected Benefits <span class="required">*</span></label>
-                            <textarea id="benefits" placeholder="¿Qué beneficios traerá? Cuantificar si es posible..." style="min-height: 70px;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="consequences">Consequences if NOT Done <span class="required">*</span></label>
-                            <textarea id="consequences" placeholder="¿Qué se pierde si no hacemos este cambio?" style="min-height: 70px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="successMetrics">Success Metrics</label>
-                            <textarea id="successMetrics" placeholder="¿Cómo mediremos el éxito post-implementación?" style="min-height: 60px;"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="impacto">Impacto Esperado</label>
+                        <textarea id="impacto" name="impacto" placeholder="¿Qué beneficio o mejora espera obtener con este cambio?"></textarea>
                     </div>
                 </div>
 
-                <!-- Sección 5: Análisis Técnico -->
-                <div class="section">
-                    <div class="section-header technical">
-                        <span class="section-number">5</span>
-                        ANÁLISIS TÉCNICO
-                        <span class="source-label">De: DOE + Smartsheet | Completado por Tech Team</span>
-                    </div>
-
-                    <div class="form-row three">
-                        <div class="form-group">
-                            <label for="assignedTo">Asignado a</label>
-                            <input type="text" id="assignedTo" placeholder="Nombre del developer">
-                        </div>
-                        <div class="form-group">
-                            <label for="archImpact">Impacto Arquitectónico</label>
-                            <select id="archImpact">
-                                <option value="">Seleccione...</option>
-                                <option value="none">Ninguno</option>
-                                <option value="minor">Menor</option>
-                                <option value="moderate">Moderado</option>
-                                <option value="significant">Significativo</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="techRisk">Riesgo Técnico</label>
-                            <select id="techRisk">
-                                <option value="">Seleccione...</option>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="modulesAffected">Módulos/Archivos/Tablas Afectados <span class="source-badge">(DOE)</span></label>
-                            <textarea id="modulesAffected" placeholder="Lista detallada de componentes que serán modificados..." style="min-height: 60px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="dependencies">Dependencias e Integraciones <span class="source-badge">(DOE + Smartsheet)</span></label>
-                            <textarea id="dependencies" placeholder="Otros sistemas, APIs, módulos que dependen de este cambio..." style="min-height: 60px;"></textarea>
-                        </div>
+                <!-- Sección 4 -->
+                <div class="form-section">
+                    <h2>4️⃣ Nivel de Urgencia</h2>
+                    <div class="form-group">
+                        <label for="urgencia">Seleccione el nivel de urgencia <span class="required">*</span></label>
+                        <select id="urgencia" name="urgencia" required>
+                            <option value="">Seleccione...</option>
+                            <option value="alta">⚠️ Alta - Afecta procesos críticos</option>
+                            <option value="media">🕓 Media - Requiere atención en el corto plazo</option>
+                            <option value="baja">✅ Baja - Mejora opcional o estética</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Sección 6: Estimación -->
-                <div class="section">
-                    <div class="section-header estimation">
-                        <span class="section-number">6</span>
-                        ESTIMACIÓN DE ESFUERZO
-                        <span class="source-label">De: DOE + Testing Genius | Desglose detallado</span>
-                    </div>
-
-                    <div class="info-box success">
-                        ✨ <strong>Innovación clave:</strong> Desglose por fase (DOE) + Testing explícito separado (Testing Genius)
-                    </div>
-
-                    <div class="estimation-grid">
-                        <div class="estimation-header">Fase</div>
-                        <div class="estimation-header">Estimado (hrs)</div>
-                        <div class="estimation-header">Real (hrs)</div>
-
-                        <div class="estimation-cell">Análisis y Diseño</div>
-                        <div class="estimation-cell"><input type="number" id="est-analysis" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-analysis" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell">Desarrollo</div>
-                        <div class="estimation-cell"><input type="number" id="est-dev" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-dev" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell">Revisión de Código</div>
-                        <div class="estimation-cell"><input type="number" id="est-review" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-review" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell">Testing (Unitarias + Integración)</div>
-                        <div class="estimation-cell"><input type="number" id="est-testing" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-testing" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell"><strong>Verificación QA </strong> (Testing Genius)</div>
-                        <div class="estimation-cell"><input type="number" id="est-qa" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-qa" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell">Documentación</div>
-                        <div class="estimation-cell"><input type="number" id="est-docs" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-docs" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-cell">Despliegue</div>
-                        <div class="estimation-cell"><input type="number" id="est-deploy" min="0" style="width: 100%; padding: 6px;"></div>
-                        <div class="estimation-cell"><input type="number" id="act-deploy" min="0" style="width: 100%; padding: 6px;" readonly class="readonly"></div>
-
-                        <div class="estimation-total">
-                            <div><strong>TOTAL:</strong></div>
-                            <div><strong id="totalEstimated">0</strong> hrs</div>
-                            <div><strong id="totalActual">0</strong> hrs</div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="estimatedCost">Costo Estimado <span class="source-badge">(Smartsheet)</span></label>
-                            <input type="text" id="estimatedCost" placeholder="$5,000">
-                        </div>
-                        <div class="form-group">
-                            <label for="actualCost">Costo Actual <span class="source-badge">(Post-implementación)</span></label>
-                            <input type="text" id="actualCost" placeholder="$6,200" readonly class="readonly">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección 7: Planificación (Condicional M/L/XL) -->
-                <div class="section conditional-section" id="planningSection">
-                    <div class="section-header planning">
-                        <span class="section-number">7</span>
-                        PLANIFICACIÓN DE IMPLEMENTACIÓN
-                        <span class="source-label">De: Smartsheet | Crítico: Rollback Plan!</span>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <strong>🔥 Innovación de Smartsheet:</strong> Rollback Plan reduce riesgo y fomenta innovación segura. Es el ÚNICO formulario que lo requiere.
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="implPlan">Implementation Plan (High-level) <span class="required">*</span></label>
-                            <textarea id="implPlan" placeholder="Pasos principales: 1. Crear rama feature/... 2. Implementar lógica... 3. Pruebas..." style="min-height: 90px;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="rollbackPlan">Rollback Plan <span class="required">*</span></label>
-                            <textarea id="rollbackPlan" placeholder="Si algo falla: 1. Revertir commit X 2. Restaurar DB backup 3. ..." style="min-height: 90px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="testingStrategy">Testing Strategy</label>
-                            <textarea id="testingStrategy" placeholder="Unit tests, Integration tests, UAT, Regression scope..." style="min-height: 70px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="communicationPlan">Communication Plan</label>
-                            <textarea id="communicationPlan" placeholder="Stakeholders a notificar, timing, canales..." style="min-height: 60px;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="dateRequired">Date Required By</label>
-                            <input type="date" id="dateRequired">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección 8: Aprobación -->
-                <div class="section">
-                    <div class="section-header approval">
-                        <span class="section-number">8</span>
-                        APROBACIÓN Y DECISIÓN
-                        <span class="source-label">Proceso adaptativo según tamaño</span>
-                    </div>
-
-                    <div class="info-box">
-                        <strong>📊 Niveles de aprobación según tamaño:</strong><br>
-                        • XS (&lt;8h): Tech Lead<br>
-                        • S (8-40h): Tech Lead + QA Lead<br>
-                        • M (40-160h): Tech Lead + Product Owner + PM<br>
-                        • L/XL (&gt;160h): CAB (Change Advisory Board)
-                    </div>
-
-                    <div class="form-row three">
-                        <div class="form-group">
-                            <label for="decision">Decisión <span class="required">*</span></label>
-                            <select id="decision" required>
-                                <option value="">Seleccione...</option>
-                                <option value="approved">✓ Aprobado</option>
-                                <option value="denied">✗ Denegado</option>
-                                <option value="deferred">⏸ Diferido</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="approvedBy">Aprobado Por</label>
-                            <input type="text" id="approvedBy" placeholder="Nombre del aprobador">
-                        </div>
-                        <div class="form-group">
-                            <label for="decisionDate">Fecha de Decisión</label>
-                            <input type="date" id="decisionDate">
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="decisionComments">Comentarios de Decisión <span class="source-badge">(Smartsheet - transparencia)</span></label>
-                            <textarea id="decisionComments" placeholder="Razones de la decisión, condiciones si aplica, feedback..." style="min-height: 70px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Estado Actual</label>
-                            <span class="status-badge status-pending" id="statusBadge">⏳ PENDIENTE DE REVISIÓN</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección 9: Verificación QA -->
-                <div class="section">
-                    <div class="section-header technical">
-                        <span class="section-number">9</span>
-                        VERIFICACIÓN DE CALIDAD (QA GATE)
-                        <span class="source-label">De: Testing Genius | CRÍTICO</span>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <strong>⭐ Innovación de Testing Genius:</strong> Estado "Verified" - el cambio NO se cierra hasta que QA confirma. Previene reaperturas.
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="qaTestCases">Casos de Prueba Ejecutados</label>
-                            <textarea id="qaTestCases" placeholder="Lista de test cases ejecutados..." style="min-height: 60px;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="qaResults">Resultados de Prueba</label>
-                            <select id="qaResults">
-                                <option value="">Pendiente...</option>
-                                <option value="pass">✓ Aprobado - Todas las pruebas OK</option>
-                                <option value="pass-minor">✓ Aprobado - Problemas menores observados</option>
-                                <option value="fail">✗ Fallido - Se requiere reapertura</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="regressionDone">¿Se realizó la prueba de regresión?</label>
-                            <select id="regressionDone">
-                                <option value="">Seleccione...</option>
-                                <option value="yes-full">Sí - Regresión completa</option>
-                                <option value="yes-partial">Sí - Parcial (áreas afectadas)</option>
-                                <option value="no">No - No requerido</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="qaVerifiedDate">Fecha de Verificación de QA</label>
-                            <input type="date" id="qaVerifiedDate">
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="qaComments">Comentarios de QA / Problemas Encontrados</label>
-                            <textarea id="qaComments" placeholder="Cualquier observación, issue menor encontrado, recomendaciones..." style="min-height: 60px;"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección 10: Post-Implementation (Condicional M/L/XL) -->
-                <div class="section conditional-section" id="postImplSection">
-                    <div class="section-header justification">
-                        <span class="section-number">10</span>
-                        REVISIÓN POST-IMPLEMENTACIÓN
-                        <span class="source-label">De: Smartsheet | 2 semanas post-deploy</span>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <strong>🎯 Exclusivo de Smartsheet:</strong> La revisión post-implementación convierte el formulario en una herramienta de aprendizaje organizacional.
-                    </div>
-
-                    <div class="form-row three">
-                        <div class="form-group">
-                            <label for="actualDeployDate">Fecha de Implementación Actual</label>
-                            <input type="date" id="actualDeployDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="successAchieved">¿Se lograron las métricas de éxito?</label>
-                            <select id="successAchieved">
-                                <option value="">Evaluar en 2 semanas...</option>
-                                <option value="yes">✓ Sí - Totalmente logrado</option>
-                                <option value="partial">⚠️ Parcial - Algunas métricas cumplidas</option>
-                                <option value="no">✗ No - No se logró</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="productionIssues">Problemas en producción?</label>
-                            <select id="productionIssues">
-                                <option value="">Monitorear...</option>
-                                <option value="none">Ninguno</option>
-                                <option value="minor">Issues menores</option>
-                                <option value="major">Issues mayores</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="benefitsRealized">Beneficios Realizados (Cualitativos + Cuantitativos)</label>
-                            <textarea id="benefitsRealized" placeholder="Describe beneficios reales observados, con métricas si es posible..." style="min-height: 70px;"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="lessonsLearned">Lecciones Aprendidas</label>
-                            <textarea id="lessonsLearned" placeholder="¿Qué salió bien? ¿Qué mejorar la próxima vez?" style="min-height: 80px;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="recommendations">Recomendaciones para el Futuro</label>
-                            <textarea id="recommendations" placeholder="Mejoras de proceso identificadas..." style="min-height: 80px;"></textarea>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <!-- Botones de Acción -->
+                <!-- Botón -->
                 <div class="button-group">
-                    <button type="submit" class="btn-primary">✓ Enviar Solicitud de Cambio</button>
-                    <button type="button" class="btn-secondary" onclick="guardarBorrador()">💾 Guardar Borrador</button>
-                    <button type="button" class="btn-secondary" onclick="exportPDF()">📄 Exportar PDF</button>
+                    <button type="submit">Enviar Solicitud</button>
                 </div>
 
                 <div id="successMessage" class="success-message">
-                    <h3>✓ ¡Solicitud Enviada Exitosamente!</h3>
-                    <p>Su solicitud de cambio ha sido registrada con el número <strong>CR-2025-AUTO</strong>.</p>
-                    <p>Será revisada según el proceso de aprobación correspondiente al tamaño del cambio.</p>
+                    <h3>✅ ¡Solicitud enviada correctamente!</h3>
+                    <p>Tu solicitud ha sido registrada y será revisada por el equipo técnico.</p>
                 </div>
 
-                <div class="footer-note">
-                    <p><strong>✨ Este formulario combina lo mejor de:</strong></p>
-                    <p>• <strong>DOE:</strong> Tracking detallado, desglose por fase, documentación exhaustiva</p>
-                    <p>• <strong>Smartsheet:</strong> Análisis de valor de negocio, rollback plan, post-implementation review</p>
-                    <p>• <strong>Testing Genius:</strong> Severity vs Priority, QA verification loop, reproducibilidad</p>
-                    <p style="margin-top: 15px; font-style: italic;">Campos marcados con (*) son obligatorios | Algunos campos son condicionales según tamaño</p>
-                </div>
             </form>
+        </div>
+
+        <div class="footer-note">
+            © 2025 Sistema de Gestión de Cambios — Formulario de Solicitud de Usuario | Universidad Técnica de Ambato
         </div>
     </div>
 
     <script>
-        // Establecer fecha actual
+        // Asignar fecha actual automáticamente
         document.getElementById('fecha').valueAsDate = new Date();
 
-        // Calcular totales de estimación automáticamente
-        const estimationFields = ['est-analysis', 'est-dev', 'est-review', 'est-testing', 'est-qa', 'est-docs', 'est-deploy'];
-        const actualFields = ['act-analysis', 'act-dev', 'act-review', 'act-testing', 'act-qa', 'act-docs', 'act-deploy'];
-
-        function calculateTotals() {
-            let totalEst = 0;
-            let totalAct = 0;
-
-            estimationFields.forEach(id => {
-                const val = parseFloat(document.getElementById(id).value) || 0;
-                totalEst += val;
-            });
-
-            actualFields.forEach(id => {
-                const val = parseFloat(document.getElementById(id).value) || 0;
-                totalAct += val;
-            });
-
-            document.getElementById('totalEstimated').textContent = totalEst;
-            document.getElementById('totalActual').textContent = totalAct;
-        }
-
-        estimationFields.forEach(id => {
-            document.getElementById(id).addEventListener('input', calculateTotals);
-        });
-
-        actualFields.forEach(id => {
-            document.getElementById(id).addEventListener('input', calculateTotals);
-        });
-
-        // Mostrar/ocultar secciones condicionales según tamaño
-        const sizeRadios = document.querySelectorAll('input[name="size"]');
-        sizeRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                const size = this.value;
-                const justificationSection = document.getElementById('justificationSection');
-                const planningSection = document.getElementById('planningSection');
-                const postImplSection = document.getElementById('postImplSection');
-
-                // Mostrar secciones para M, L, XL
-                if (size === 'm' || size === 'l' || size === 'xl') {
-                    justificationSection.classList.add('show');
-                    planningSection.classList.add('show');
-                    postImplSection.classList.add('show');
-                    
-                    // Hacer campos obligatorios
-                    document.getElementById('businessJust').required = true;
-                    document.getElementById('benefits').required = true;
-                    document.getElementById('consequences').required = true;
-                    document.getElementById('implPlan').required = true;
-                    document.getElementById('rollbackPlan').required = true;
-                } else {
-                    justificationSection.classList.remove('show');
-                    planningSection.classList.remove('show');
-                    postImplSection.classList.remove('show');
-                    
-                    // Hacer campos opcionales
-                    document.getElementById('businessJust').required = false;
-                    document.getElementById('benefits').required = false;
-                    document.getElementById('consequences').required = false;
-                    document.getElementById('implPlan').required = false;
-                    document.getElementById('rollbackPlan').required = false;
-                }
-            });
-        });
-
-        // Actualizar badge de status según decisión
-        document.getElementById('decision').addEventListener('change', function() {
-            const statusBadge = document.getElementById('statusBadge');
-            const decision = this.value;
-            
-            statusBadge.classList.remove('status-pending', 'status-approved');
-            
-            if (decision === 'approved') {
-                statusBadge.className = 'status-badge status-approved';
-                statusBadge.textContent = '✓ APPROVED';
-            } else if (decision === 'denied') {
-                statusBadge.className = 'status-badge';
-                statusBadge.style.background = '#fee2e2';
-                statusBadge.style.color = '#991b1b';
-                statusBadge.textContent = '✗ DENIED';
-            } else if (decision === 'deferred') {
-                statusBadge.className = 'status-badge';
-                statusBadge.style.background = '#fef3c7';
-                statusBadge.style.color = '#92400e';
-                statusBadge.textContent = '⏸ DEFERRED';
-            }
-        });
-
-        // Manejo del envío del formulario
+        // Envío simulado
         document.getElementById('changeRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Validar que al menos un tipo de cambio esté seleccionado
-            const tiposCambio = document.querySelectorAll('input[name="tipo-cambio"]:checked');
-            if (tiposCambio.length === 0) {
-                alert('Por favor, seleccione al menos un tipo de cambio.');
-                return;
-            }
 
-            // Simular envío exitoso
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
-            
-            // Scroll al mensaje de éxito
             successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Ocultar mensaje después de 8 segundos
+
             setTimeout(() => {
                 successMsg.classList.remove('show');
-            }, 8000);
-        });
-
-        function guardarBorrador() {
-            const formData = new FormData(document.getElementById('changeRequestForm'));
-            const data = Object.fromEntries(formData);
-            
-            // Simular guardado
-            alert('✓ Borrador guardado exitosamente.\n\nPodrá continuar editando esta solicitud más tarde.');
-            console.log('Datos guardados:', data);
-        }
-
-        function exportPDF() {
-            alert('📄 Exportación a PDF\n\nEn una implementación real, esto generaría un PDF con todos los datos del formulario.\n\nFormato sugerido: CR-2025-AUTO_ChangeRequest.pdf');
-        }
-
-        // Tooltips informativos (simulado con title)
-        document.querySelectorAll('.source-badge').forEach(badge => {
-            badge.style.cursor = 'help';
-        });
-
-        // Auto-guardar cada 3 minutos (opcional)
-        let autoSaveInterval = setInterval(() => {
-            const formData = new FormData(document.getElementById('changeRequestForm'));
-            console.log('Auto-guardado:', new Date().toLocaleTimeString());
-            // En producción, aquí enviarías los datos al servidor
-        }, 180000);
-
-        // Advertencia si intenta salir sin guardar
-        let formModified = false;
-        document.getElementById('changeRequestForm').addEventListener('change', () => {
-            formModified = true;
-        });
-
-        window.addEventListener('beforeunload', (e) => {
-            if (formModified) {
-                e.preventDefault();
-                e.returnValue = '';
-            }
-        });
-
-        // Limpiar flag después de submit o save
-        document.getElementById('changeRequestForm').addEventListener('submit', () => {
-            formModified = false;
+                this.reset();
+                document.getElementById('fecha').valueAsDate = new Date();
+            }, 6000);
         });
     </script>
 </body>
